@@ -19,14 +19,12 @@ spring:
           uri: http://openframe-client.openframe-microservices.svc.cluster.local:8097
           predicates:
             - Path=/clients/**
-          filters:
-            - StripPrefix=1
+
         - id: openframe-api
           uri: http://openframe-api.openframe-microservices.svc.cluster.local:8090
           predicates:
             - Path=/dashboard/**
-          filters:
-            - StripPrefix=1
+
 
 # Management server configuration
 management:
