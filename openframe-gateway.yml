@@ -24,7 +24,7 @@ spring:
         - id: openframe-api
           uri: http://openframe-api.openframe-microservices.svc.cluster.local:8090
           predicates:
-            - Path=/dashboard/**
+            - Path=/api/**
           filters:
             - StripPrefix=1
 
