@@ -1,7 +1,7 @@
 # API service docker environment configuration
 spring:
   kafka:
-    bootstrap-servers: openframe-kafka.openframe-datasources.svc.cluster.local:9092
+    bootstrap-servers: kafka.datasources.svc.cluster.local:9092
 
 oauth:
   client:
@@ -11,11 +11,11 @@ oauth:
 
 fleet:
   api:
-    url: http://openframe-fleet.fleet.svc.cluster.local:8070
+    url: http://fleet.fleet.svc.cluster.local:8070
 
 openframe:
   management:
-    url: http://openframe-management.openframe-microservices.svc.cluster.local:8095
+    url: http://openframe-management.microservices.svc.cluster.local:8095
     key: ${OPENFRAME_MANAGEMENT_KEY:docker-management-key-123}
 
 
