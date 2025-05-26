@@ -19,7 +19,7 @@ logging:
 
 # Docker monitoring endpoints
 loki:
-  url: http://openframe-loki.platform.svc.cluster.local:3100/loki/api/v1/push
+  url: http://loki.loki.svc.cluster.local:3100/loki/api/v1/push
 
 # Pinot connection details
 pinot:
