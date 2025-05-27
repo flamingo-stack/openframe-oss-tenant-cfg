@@ -1,45 +1,59 @@
 server:
-  port: 8100
+  port: 8097
 
-# Gateway service common configuration
 spring:
   main:
-    web-application-type: reactive
+    web-application-type: servlet
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.cassandra.CassandraAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.cassandra.CassandraDataAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.cassandra.CassandraReactiveDataAutoConfiguration
+      - org.springframework.boot.actuate.autoconfigure.cassandra.CassandraHealthContributorAutoConfiguration
   data:
-    cassandra:
-      enabled: true
     mongodb:
       enabled: true
+    cassandra:
+      enabled: false
+  redis:
+    enabled: true
+    timeout: 2000
+    connect-timeout: 2000
+    lettuce:
+      shutdown-timeout: 2000ms
+      pool:
+        enabled: true
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        max-wait: 1000ms
+    client-type: lettuce
+  kafka:
+    enabled: false
   cloud:
     config:
       fail-fast: false
-    gateway:
-      httpclient:
-        ssl:
-          useInsecureTrustManager: true
-      routes:
-        - id: openframe-client
-          uri: http://openframe-client.openframe-microservices.svc.cluster.local:8097
-          predicates:
-            - Path=/clients/**
-          filters:
-            - StripPrefix=1
-        - id: openframe-api
-          uri: http://openframe-api.openframe-microservices.svc.cluster.local:8090
-          predicates:
-            - Path=/api/**
-          filters:
-            - StripPrefix=1
 
-
-# Management server configuration
 management:
   server:
-    port: 8101
+    port: 8102
+  endpoints:
+    web:
+      base-path: /management/v1
+  endpoint:
+    health:
+      show-details: always
+      group:
+        readiness:
+          include: mongo,redis
+          show-details: always
+        liveness:
+          include: ping
+          show-details: always
 
 jwt:
   issuer: openframe
-  audience: openframe-web
+  audience: openframe-client
   publicKey:
     value: |
       -----BEGIN PUBLIC KEY-----
@@ -81,3 +95,11 @@ jwt:
       M1L84p9zp0LUoEKCkInzRxey0rPLjRSiYRoqiJpSXisX4uUZ8H/paG17p9vNRYM8
       WCF8tQL1/DdeHALwemnWrgyc
       -----END PRIVATE KEY-----
+
+oauth:
+  client:
+    default:
+      grant-types:
+        - client_credentials
+      scopes:
+        - agent
