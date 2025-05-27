@@ -11,7 +11,7 @@ oauth:
 
 fleet:
   api:
-    url: http://fleet.fleet.svc.cluster.local:8070
+    url: http://fleet.integrated-tools.svc.cluster.local:8070
 
 openframe:
   management:
