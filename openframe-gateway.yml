@@ -30,6 +30,18 @@ spring:
             - Path=/api/**
           filters:
             - StripPrefix=1
+        - id: openframe-ui-static
+          uri: http://openframe-ui.microservices.svc.cluster.local:3000
+          predicates:
+            - Path=/assets/**
+            - Path=/favicon.ico
+            - Path=/index.html
+        - id: openframe-ui-spa
+          uri: http://openframe-ui.microservices.svc.cluster.local:3000
+          predicates:
+            - Path=/**
+          filters:
+            - SetPath=/
 
 
 # Management server configuration
