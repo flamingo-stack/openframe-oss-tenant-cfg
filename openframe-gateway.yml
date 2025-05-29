@@ -18,24 +18,33 @@ spring:
         ssl:
           useInsecureTrustManager: true
       routes:
-        - id: openframe-client
-          uri: http://openframe-client.microservices.svc.cluster.local:8097
+        - id: openframe-ui-vite
+          uri: http://openframe-ui.microservices.svc.cluster.local:3000
           predicates:
-            - Path=/clients/**
-          filters:
-            - StripPrefix=1
-        - id: openframe-api
-          uri: http://openframe-api.microservices.svc.cluster.local:8090
-          predicates:
-            - Path=/api/**
-          filters:
-            - StripPrefix=1
+            - Path=/@vite/**
+            - Path=/src/**
+
         - id: openframe-ui-static
           uri: http://openframe-ui.microservices.svc.cluster.local:3000
           predicates:
             - Path=/assets/**
             - Path=/favicon.ico
             - Path=/index.html
+
+        - id: openframe-api
+          uri: http://openframe-api.microservices.svc.cluster.local:8090
+          predicates:
+            - Path=/api/**
+          filters:
+            - StripPrefix=1
+
+        - id: openframe-client
+          uri: http://openframe-client.microservices.svc.cluster.local:8097
+          predicates:
+            - Path=/clients/**
+          filters:
+            - StripPrefix=1
+
         - id: openframe-ui-spa
           uri: http://openframe-ui.microservices.svc.cluster.local:3000
           predicates:
