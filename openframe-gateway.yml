@@ -18,20 +18,6 @@ spring:
         ssl:
           useInsecureTrustManager: true
       routes:
-        - id: openframe-ui-vite
-          uri: http://openframe-ui.microservices.svc.cluster.local:3000
-          predicates:
-            - Path=/@vite/**
-            - Path=/src/**
-            - Path=/node_modules/**
-
-        - id: openframe-ui-static
-          uri: http://openframe-ui.microservices.svc.cluster.local:3000
-          predicates:
-            - Path=/assets/**
-            - Path=/favicon.ico
-            - Path=/index.html
-
         - id: openframe-api
           uri: http://openframe-api.microservices.svc.cluster.local:8090
           predicates:
@@ -46,6 +32,21 @@ spring:
           filters:
             - StripPrefix=1
 
+        - id: openframe-ui-vite
+          uri: http://openframe-ui.microservices.svc.cluster.local:3000
+          predicates:
+            - Path=/@vite/**,/src/**,/node_modules/**
+
+        - id: openframe-ui-static
+          uri: http://openframe-ui.microservices.svc.cluster.local:3000
+          predicates:
+            - Path=/assets/**,/static/**,/*.js,/*.css,/*.png,/*.jpg,/*.ico,/*.svg,/*.json
+
+        - id: openframe-ui-html
+          uri: http://openframe-ui.microservices.svc.cluster.local:3000
+          predicates:
+            - Path=/index.html,/*.html
+
         - id: openframe-ui-spa
           uri: http://openframe-ui.microservices.svc.cluster.local:3000
           predicates:
@@ -53,8 +54,6 @@ spring:
           filters:
             - SetPath=/
 
-
-# Management server configuration
 management:
   server:
     port: 8101
