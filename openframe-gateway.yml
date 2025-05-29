@@ -23,6 +23,7 @@ spring:
           predicates:
             - Path=/@vite/**
             - Path=/src/**
+            - Path=/node_modules/**
 
         - id: openframe-ui-static
           uri: http://openframe-ui.microservices.svc.cluster.local:3000
