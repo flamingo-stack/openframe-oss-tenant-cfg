@@ -32,21 +32,6 @@ spring:
           filters:
             - StripPrefix=1
 
-        - id: openframe-ui-vite
-          uri: http://openframe-ui.microservices.svc.cluster.local:3000
-          predicates:
-            - Path=/@vite/**,/src/**,/node_modules/**,/ws/**,/@id/**
-
-        - id: openframe-ui-static
-          uri: http://openframe-ui.microservices.svc.cluster.local:3000
-          predicates:
-            - Path=/assets/**,/static/**,/*.js,/*.css,/*.png,/*.jpg,/*.ico,/*.svg,/*.json
-
-        - id: openframe-ui-html
-          uri: http://openframe-ui.microservices.svc.cluster.local:3000
-          predicates:
-            - Path=/index.html,/*.html
-
         - id: openframe-ui-spa
           uri: http://openframe-ui.microservices.svc.cluster.local:3000
           predicates:
