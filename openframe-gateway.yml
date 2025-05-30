@@ -18,12 +18,6 @@ spring:
         ssl:
           useInsecureTrustManager: true
       routes:
-        - id: openframe-client
-          uri: http://openframe-client.microservices.svc.cluster.local:8097
-          predicates:
-            - Path=/clients/**
-          filters:
-            - StripPrefix=1
         - id: openframe-api
           uri: http://openframe-api.microservices.svc.cluster.local:8090
           predicates:
@@ -31,8 +25,18 @@ spring:
           filters:
             - StripPrefix=1
 
+        - id: openframe-client
+          uri: http://openframe-client.microservices.svc.cluster.local:8097
+          predicates:
+            - Path=/clients/**
+          filters:
+            - StripPrefix=1
 
-# Management server configuration
+        - id: openframe-ui-spa
+          uri: http://openframe-ui.microservices.svc.cluster.local:3000
+          predicates:
+            - Path=/**
+
 management:
   server:
     port: 8101
