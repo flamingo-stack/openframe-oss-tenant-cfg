@@ -17,6 +17,8 @@ spring:
       httpclient:
         ssl:
           useInsecureTrustManager: true
+        websocket:
+          max-frame-payload-length: 1048576 #1MB
       routes:
         - id: openframe-api
           uri: http://openframe-api.microservices.svc.cluster.local:8090
