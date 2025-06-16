@@ -2,7 +2,28 @@
 spring:
   kafka:
     bootstrap-servers: kafka.datasources.svc.cluster.local:9092
+    consumer:
+      group-id: openframe-stream-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 
   data:
     mongodb:
       uri: mongodb://openframe:password123456789@mongodb.datasources.svc.cluster.local:27017/openframe?authSource=admin&connectTimeoutMS=10000&socketTimeoutMS=10000&serverSelectionTimeoutMS=10000
+
+kafka:
+  consumer:
+    topic:
+      event:
+        meshcentral:
+          name: meshcentral.mongodb.events
+        tactical-rmm:
+          name: tactical-rmm.postgres.events
+  producer:
+    topic:
+      event:
+        meshcentral:
+          name: meshcentral.mongodb.events.pinot
+        tactical-rmm:
+          name: tactical-rmm.postgres.events.pinot
