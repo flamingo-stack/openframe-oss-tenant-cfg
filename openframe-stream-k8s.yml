@@ -19,6 +19,9 @@ kafka:
         name: meshcentral.mongodb.events
       tactical-rmm:
         name: tactical-rmm.postgres.events
+    openframe:
+      mongo:
+        name: openframe.mongodb.machines
   producer:
     topic:
       event:
