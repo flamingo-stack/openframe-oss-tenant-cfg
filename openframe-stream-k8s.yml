@@ -29,3 +29,6 @@ kafka:
           name: meshcentral.mongodb.events.pinot
         tactical-rmm:
           name: tactical-rmm.postgres.events.pinot
+      openframe:
+        machines:
+          name: machines.pinot
