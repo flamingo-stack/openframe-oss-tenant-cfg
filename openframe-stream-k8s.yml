@@ -10,7 +10,7 @@ spring:
 
   data:
     mongodb:
-      uri: mongodb://openframe:password123456789@mongodb.datasources.svc.cluster.local:27017/openframe?authSource=admin&connectTimeoutMS=10000&socketTimeoutMS=10000&serverSelectionTimeoutMS=10000
+      uri: mongodb://mongodb.datasources.svc.cluster.local:27017/openframe?authSource=admin&connectTimeoutMS=10000&socketTimeoutMS=10000&serverSelectionTimeoutMS=10000
 
 kafka:
   topic:
@@ -19,6 +19,9 @@ kafka:
         name: meshcentral.mongodb.events
       tactical-rmm:
         name: tactical-rmm.postgres.events
+    openframe:
+      mongo:
+        name: openframe.mongodb.machines
   producer:
     topic:
       event:
@@ -26,3 +29,6 @@ kafka:
           name: meshcentral.mongodb.events.pinot
         tactical-rmm:
           name: tactical-rmm.postgres.events.pinot
+      openframe:
+        machines:
+          name: machines.pinot
