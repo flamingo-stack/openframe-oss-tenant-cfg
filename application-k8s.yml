@@ -15,7 +15,7 @@ spring:
 
 # Docker logging configuration
 logging:
-  config: http://openframe-config-server.microservices.svc.cluster.local:8888/logging/shared-logback-spring.xml
+  config: http://openframe-config.microservices.svc.cluster.local:8888/logging/shared-logback-spring.xml
 
 # Docker monitoring endpoints
 loki:
@@ -35,4 +35,4 @@ security:
         issuer-uri: http://openframe-api.microservices.svc.cluster.local:8090
     authorization:
       cors:
-        allowed-origins: http://openframe-config-server.microservices.svc.cluster.local
+        allowed-origins: http://openframe-config.microservices.svc.cluster.local
