@@ -36,3 +36,15 @@ spring:
   cloud:
     config:
       fail-fast: false
+kafka:
+  topic:
+    event:
+      meshcentral:
+        name: meshcentral.mongodb.events
+      tactical-rmm:
+        name: tactical-rmm.postgres.events
+  producer:
+    topic:
+      it:
+        event:
+          name: integrated-tool.events.pinot
