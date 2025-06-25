@@ -27,7 +27,6 @@ pinot:
     url: pinot-controller.datasources.svc.cluster.local:9000
   broker:
     url: pinot-broker.datasources.svc.cluster.local:8099
-
 security:
   oauth2:
     resourceserver:
