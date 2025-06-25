@@ -24,10 +24,9 @@ loki:
 # Pinot connection details
 pinot:
   controller:
-    url: http://pinot-controller.datasources.svc.cluster.local:9000
+    url: pinot-controller.datasources.svc.cluster.local:9000
   broker:
-    url: http://pinot-broker.datasources.svc.cluster.local:8099
-
+    url: pinot-broker.datasources.svc.cluster.local:8099
 security:
   oauth2:
     resourceserver:
