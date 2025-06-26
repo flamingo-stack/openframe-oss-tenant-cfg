@@ -10,7 +10,7 @@ spring:
 
   data:
     redis:
-      host: redis-headless.datasources.svc.cluster.local
+      host: redis-master.datasources.svc.cluster.local
       port: 6379
     mongodb:
       enabled: true
