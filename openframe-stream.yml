@@ -37,12 +37,13 @@ spring:
     config:
       fail-fast: false
 kafka:
-  topic:
-    event:
-      meshcentral:
-        name: meshcentral.mongodb.events
-      tactical-rmm:
-        name: tactical-rmm.postgres.events
+  consumer:
+    topic:
+      event:
+        meshcentral:
+          name: meshcentral.mongodb.events
+        tactical-rmm:
+          name: tactical-rmm.postgres.events
   producer:
     topic:
       it:
