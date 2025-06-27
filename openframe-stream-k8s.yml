@@ -10,19 +10,5 @@ spring:
 
   data:
     mongodb:
+      enabled: true
       uri: mongodb://openframe:password123456789@mongodb.datasources.svc.cluster.local:27017/openframe?authSource=admin&connectTimeoutMS=10000&socketTimeoutMS=10000&serverSelectionTimeoutMS=10000
-
-kafka:
-  topic:
-    event:
-      meshcentral:
-        name: meshcentral.mongodb.events
-      tactical-rmm:
-        name: tactical-rmm.postgres.events
-  producer:
-    topic:
-      event:
-        meshcentral:
-          name: meshcentral.mongodb.events.pinot
-        tactical-rmm:
-          name: tactical-rmm.postgres.events.pinot
