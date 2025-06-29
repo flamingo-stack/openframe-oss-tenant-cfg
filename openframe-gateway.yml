@@ -20,6 +20,13 @@ spring:
         websocket:
           max-frame-payload-length: 1048576 #1MB
       routes:
+        - id: external-api
+          uri: http://localhost:8082
+          predicates:
+            - Path=/external-api/**
+          filters:
+            - StripPrefix=1
+
         - id: openframe-api
           uri: http://openframe-api.microservices.svc.cluster.local:8090
           predicates:
