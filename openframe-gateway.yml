@@ -10,9 +10,6 @@ spring:
       enabled: true
     mongodb:
       enabled: true
-    redis:
-      host: redis-master.datasources.svc.cluster.local
-      port: 6379
   cloud:
     config:
       fail-fast: false
