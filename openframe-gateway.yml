@@ -20,6 +20,25 @@ spring:
         websocket:
           max-frame-payload-length: 1048576 #1MB
       routes:
+        # Direct Swagger/OpenAPI routes (for Swagger UI JavaScript requests)
+        - id: swagger-api-docs
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api-docs/**
+          order: 0
+
+        - id: swagger-ui-direct
+          uri: http://localhost:8082
+          predicates:
+            - Path=/swagger-ui/**
+          order: 0
+
+        - id: swagger-webjars
+          uri: http://localhost:8082
+          predicates:
+            - Path=/webjars/**
+          order: 0
+
         - id: external-api
           uri: http://localhost:8082
           predicates:
