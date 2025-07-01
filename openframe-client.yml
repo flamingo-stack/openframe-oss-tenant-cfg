@@ -29,7 +29,7 @@ spring:
         max-wait: 1000ms
     client-type: lettuce
   kafka:
-    enabled: false
+    enabled: true
   cloud:
     config:
       fail-fast: false
@@ -103,3 +103,8 @@ oauth:
         - client_credentials
       scopes:
         - agent
+kafka:
+  producer:
+    topic:
+      machine:
+        name: devices-topic
