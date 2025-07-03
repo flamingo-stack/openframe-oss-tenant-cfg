@@ -96,7 +96,6 @@ openframe:
     sync-interval: 300000  # 5 minutes in milliseconds
     redis-ttl: 604800      # 7 days in seconds
 
-
 management:
   server:
     port: 8101
