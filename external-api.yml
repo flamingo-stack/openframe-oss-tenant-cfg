@@ -7,6 +7,10 @@ spring:
   main:
     web-application-type: servlet
 
+management:
+  server:
+    port: 8093
+
 # OpenAPI/Swagger Configuration
 springdoc:
   api-docs:
