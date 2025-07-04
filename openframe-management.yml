@@ -34,4 +34,4 @@ management:
 openframe:
   api-key-stats:
     enabled: true
-    sync-interval: 300000  # 5 minutes in milliseconds
+    sync-interval: 30000  # 5 minutes in milliseconds

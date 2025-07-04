@@ -82,7 +82,7 @@ spring:
 openframe:
   rate-limit:
     enabled: true
-    default-requests-per-minute: 100
+    default-requests-per-minute: 5
     default-requests-per-hour: 1000
     default-requests-per-day: 10000
     redis-ttl: 7200        # 2 hours in seconds
