@@ -92,8 +92,6 @@ openframe:
 
   # API Key Statistics configuration
   api-key-stats:
-    enabled: true
-    sync-interval: 300000  # 5 minutes in milliseconds
     redis-ttl: 604800      # 7 days in seconds
 
 management:
