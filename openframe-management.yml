@@ -29,3 +29,12 @@ management:
   health:
     cassandra:
       enabled: false
+
+  # API Key Statistics configuration
+openframe:
+  api-key-stats:
+    enabled: true
+    sync-interval: 300000  # 5 minutes in milliseconds
+    lock-at-most-for: "10m"  # Maximum lock duration
+    lock-at-least-for: "1m"
+

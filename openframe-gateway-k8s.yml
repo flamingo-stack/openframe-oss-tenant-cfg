@@ -6,3 +6,6 @@ spring:
     cassandra:
       contact-points: cassandra.datasources.svc.cluster.local
       port: 9042
+    redis:
+      host: redis-master.datasources.svc.cluster.local
+      port: 6379

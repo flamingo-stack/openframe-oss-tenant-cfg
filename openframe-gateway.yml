@@ -5,6 +5,19 @@ server:
 spring:
   main:
     web-application-type: reactive
+  redis:
+    enabled: true
+    timeout: 2000
+    connect-timeout: 2000
+    lettuce:
+      shutdown-timeout: 2000ms
+      pool:
+        enabled: true
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        max-wait: 1000ms
+    client-type: lettuce
   data:
     cassandra:
       enabled: true
@@ -20,6 +33,32 @@ spring:
         websocket:
           max-frame-payload-length: 1048576 #1MB
       routes:
+        # Direct Swagger/OpenAPI routes (for Swagger UI JavaScript requests)
+        - id: swagger-api-docs
+          uri: http://external-api.microservices.svc.cluster.local:8092
+          predicates:
+            - Path=/api-docs/**
+          order: 0
+
+        - id: swagger-ui-direct
+          uri: http://external-api.microservices.svc.cluster.local:8092
+          predicates:
+            - Path=/swagger-ui/**
+          order: 0
+
+        - id: swagger-webjars
+          uri: http://external-api.microservices.svc.cluster.local:8092
+          predicates:
+            - Path=/webjars/**
+          order: 0
+
+        - id: external-api
+          uri: http://external-api.microservices.svc.cluster.local:8092
+          predicates:
+            - Path=/external-api/**
+          filters:
+            - StripPrefix=1
+
         - id: openframe-api
           uri: http://openframe-api.microservices.svc.cluster.local:8090
           predicates:
@@ -38,6 +77,22 @@ spring:
           uri: http://openframe-ui.microservices.svc.cluster.local:3000
           predicates:
             - Path=/**
+
+# Rate limiting configuration
+openframe:
+  rate-limit:
+    enabled: true
+    default-requests-per-minute: 5
+    default-requests-per-hour: 1000
+    default-requests-per-day: 10000
+    redis-ttl: 7200        # 2 hours in seconds
+    fail-open: true
+    log-violations: true
+    include-headers: true
+
+  # API Key Statistics configuration
+  api-key-stats:
+    redis-ttl: 604800      # 7 days in seconds
 
 management:
   server:
