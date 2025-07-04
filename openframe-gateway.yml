@@ -35,25 +35,25 @@ spring:
       routes:
         # Direct Swagger/OpenAPI routes (for Swagger UI JavaScript requests)
         - id: swagger-api-docs
-          uri: http://localhost:8082
+          uri: http://external-api.microservices.svc.cluster.local:8092
           predicates:
             - Path=/api-docs/**
           order: 0
 
         - id: swagger-ui-direct
-          uri: http://localhost:8082
+          uri: http://external-api.microservices.svc.cluster.local:8092
           predicates:
             - Path=/swagger-ui/**
           order: 0
 
         - id: swagger-webjars
-          uri: http://localhost:8082
+          uri: http://external-api.microservices.svc.cluster.local:8092
           predicates:
             - Path=/webjars/**
           order: 0
 
         - id: external-api
-          uri: http://localhost:8082
+          uri: http://external-api.microservices.svc.cluster.local:8092
           predicates:
             - Path=/external-api/**
           filters:
