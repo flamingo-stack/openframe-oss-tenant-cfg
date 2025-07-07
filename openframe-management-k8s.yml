@@ -6,7 +6,7 @@ spring:
     # Docker Redis connection (created from application-k8s.yaml)
     # TODO: Remove this once Redis url is taken from application-k8s.yaml
     redis:
-      host: redis-headless.datasources.svc.cluster.local
+      host: redis-master.datasources.svc.cluster.local
       port: 6379
 
   kafka:
