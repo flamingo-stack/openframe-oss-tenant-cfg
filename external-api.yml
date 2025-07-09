@@ -6,6 +6,20 @@ spring:
     name: external-api
   main:
     web-application-type: servlet
+  data:
+    mongodb:
+      enabled: true
+    cassandra:
+      enabled: false
+    redis:
+      enabled: false
+  kafka:
+    enabled: false
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.cassandra.CassandraAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.cassandra.CassandraDataAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.cassandra.CassandraReactiveDataAutoConfiguration'
 
 management:
   server:
