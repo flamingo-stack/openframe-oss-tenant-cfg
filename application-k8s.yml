@@ -35,3 +35,7 @@ security:
     authorization:
       cors:
         allowed-origins: http://openframe-config.microservices.svc.cluster.local
+
+debezium:
+  connector:
+    create: http://debezium-connect.datasources:8083
