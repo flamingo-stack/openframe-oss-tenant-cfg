@@ -11,8 +11,19 @@ spring:
       enabled: true
     cassandra:
       enabled: false
-    redis:
-      enabled: false
+  redis:
+    enabled: true
+    timeout: 2000
+    connect-timeout: 2000
+    lettuce:
+      shutdown-timeout: 2000ms
+      pool:
+        enabled: true
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        max-wait: 1000ms
+    client-type: lettuce
   kafka:
     enabled: false
   autoconfigure:
