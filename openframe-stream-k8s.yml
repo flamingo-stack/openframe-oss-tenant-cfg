@@ -15,9 +15,3 @@ spring:
     mongodb:
       enabled: true
       uri: mongodb://openframe:password123456789@mongodb-0.mongodb.datasources.svc.cluster.local:27017/openframe?authSource=admin&connectTimeoutMS=10000&socketTimeoutMS=10000&serverSelectionTimeoutMS=10000
-  datasource:
-    fleet:
-      jdbc-url: jdbc:mysql://fleetmdm-mysql-0.fleetmdm-mysql.integrated-tools.svc.cluster.local:3306/fleet-mdm-database
-      username: fleet-mdm-user
-      password: fleet-mdm-password-1234
-      driver-class-name: com.mysql.cj.jdbc.Driver
