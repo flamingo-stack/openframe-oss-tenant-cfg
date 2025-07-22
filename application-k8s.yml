@@ -38,4 +38,4 @@ security:
 
 debezium:
   connector:
-    create: http://debezium-connect.datasources:8083
+    create: http://debezium-connect.datasources:8083/connectors
