@@ -36,6 +36,12 @@ spring:
         enabled: true
     path: /graphql
 
+openframe:
+  security:
+    cookie:
+      domain: null
+      secure: true   # true for HTTPS, false for HTTP
+
 # Management server configuration
 management:
   server:

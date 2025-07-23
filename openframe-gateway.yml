@@ -89,6 +89,11 @@ openframe:
     fail-open: true
     log-violations: true
     include-headers: true
+  security:
+    cookie:
+      domain: null
+      secure: true   # true for HTTPS, false for HTTP
+
 
   # API Key Statistics configuration
   api-key-stats:
