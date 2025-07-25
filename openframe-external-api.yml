@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: external-api
+    name: openframe-external-api
   main:
     web-application-type: servlet
   data:
