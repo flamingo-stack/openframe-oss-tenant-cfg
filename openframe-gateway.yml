@@ -55,7 +55,7 @@ spring:
         - id: openframe-external-api
           uri: http://openframe-external-api.microservices.svc.cluster.local:8092
           predicates:
-            - Path=/openframe-external-api/**
+            - Path=/external-api/**
           filters:
             - StripPrefix=1
 
