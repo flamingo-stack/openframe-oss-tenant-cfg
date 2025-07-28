@@ -45,8 +45,15 @@ kafka:
           name: meshcentral.mongodb.events
         tactical-rmm:
           name: tactical-rmm.postgres.events
+        fleet-mdm:
+          name: fleet.mysql.events
   producer:
     topic:
       it:
         event:
           name: integrated-tool.events.pinot
+# Fleet MDM Configuration
+fleet:
+  mdm:
+    # Base URL for Fleet MDM server
+    base-url: http://fleetmdm-server.integrated-tools.svc.cluster.local:8070
