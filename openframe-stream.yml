@@ -47,6 +47,10 @@ kafka:
           name: tactical-rmm.postgres.events
         fleet-mdm:
           name: fleet.mysql.events
+      stream:
+        fleet-mdm:
+          activities: fleet.activities.events
+          host-activities: fleet.host_activities.events
   producer:
     topic:
       it:
