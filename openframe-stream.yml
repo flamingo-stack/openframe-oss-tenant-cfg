@@ -17,6 +17,9 @@ spring:
     exclude:
       - org.apache.pinot.client.PinotClientAutoConfiguration
       - org.apache.pinot.spring.boot.PinotAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
   redis:
     enabled: true
   kafka:
@@ -42,8 +45,19 @@ kafka:
           name: meshcentral.mongodb.events
         tactical-rmm:
           name: tactical-rmm.postgres.events
+        fleet-mdm:
+          name: fleet.mysql.events
+      stream:
+        fleet-mdm:
+          activities: fleet.activities.events
+          host-activities: fleet.host_activities.events
   producer:
     topic:
       it:
         event:
           name: integrated-tool.events.pinot
+# Fleet MDM Configuration
+fleet:
+  mdm:
+    # Base URL for Fleet MDM server
+    base-url: http://fleetmdm-server.integrated-tools.svc.cluster.local:8070
