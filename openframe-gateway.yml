@@ -33,6 +33,11 @@ spring:
         websocket:
           max-frame-payload-length: 1048576 #1MB
       routes:
+        - id: bff-oauth
+          uri: forward:/
+          predicates:
+            - Path=/oauth/**
+          order: -1
         # Direct Swagger/OpenAPI routes (for Swagger UI JavaScript requests)
         - id: swagger-api-docs
           uri: http://openframe-external-api.microservices.svc.cluster.local:8092
