@@ -10,7 +10,7 @@ spring:
     mongodb:
       enabled: true
     cassandra:
-      enabled: false
+      enabled: true
     redis:
       enabled: false
   kafka:
