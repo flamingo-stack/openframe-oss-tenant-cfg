@@ -52,7 +52,7 @@ management:
           show-details: always
 
 jwt:
-  issuer: openframe
+  issuer: https://auth.openframe.com
   audience: openframe-client
   publicKey:
     value: |

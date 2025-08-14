@@ -110,7 +110,7 @@ management:
     port: 8101
 
 jwt:
-  issuer: openframe
+  issuer: https://auth.openframe.com
   audience: openframe-web
   publicKey:
     value: |
