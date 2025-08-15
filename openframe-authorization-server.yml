@@ -3,7 +3,10 @@
 spring:
   main:
     web-application-type: servlet
-  port: 9000
+  port: 9005
+  forward-headers-strategy: native
+  servlet:
+    context-path: /sas
 
   # Spring Cloud Config
   cloud:
@@ -35,20 +38,11 @@ openframe:
         id: openframe-gateway
         secret: openframe-gateway-secret
       redirect-uri: https://localhost/oauth/callback
-  tenants:
-    default-tenant: localhost
-    default-domain: localhost
 
   # Domain validation regex (only localhost for local development)
   domain:
     validation:
       regex: "^localhost$"
-
-  # OAuth2 Token Configuration
-  security:
-    jwt:
-      access-token-expiration: 900    # 15 minutes
-      refresh-token-expiration: 604800 # 7 days
 
   # SSO Configuration
   sso:
@@ -61,23 +55,20 @@ openframe:
       enabled: true
       display-name: Google
 
-# Security OAuth2 Token Configuration (for CookieService)
+# Security OAuth2 Token Configuration
 security:
+  oauth2:
+    token:
+      access:
+        expiration-seconds: 900
+      refresh:
+        expiration-seconds: 604800
+
   encryption:
     password: ${ENCRYPTION_PASSWORD:kdCJxik7VWRlG5L8jKHBeJQK5unssi7u1uHOd01b75ilr8n}
     salt: ${ENCRYPTION_SALT:74f62c51327175b05abe1ad78030565c}
 
-# Logging Configuration
-logging:
-  level:
-    com.openframe: DEBUG
-    org.springframework.security: DEBUG
-    org.springframework.security.oauth2: DEBUG
-    org.springframework.security.oauth2.server.authorization.web.OAuth2TokenEndpointFilter: TRACE
-    org.springframework.security.oauth2.server.authorization.authentication.OAuth2AuthorizationCodeAuthenticationProvider: TRACE
-    org.springframework.security.oauth2.server.authorization: TRACE
-
 # Management server configuration
 management:
   server:
-    port: 9001
+    port: 9006

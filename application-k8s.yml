@@ -27,14 +27,6 @@ pinot:
     url: pinot-controller.datasources.svc.cluster.local:9000
   broker:
     url: pinot-broker.datasources.svc.cluster.local:8099
-security:
-  oauth2:
-    resourceserver:
-      jwt:
-        issuer-uri: http://openframe-api.microservices.svc.cluster.local:8090
-    authorization:
-      cors:
-        allowed-origins: http://openframe-config.microservices.svc.cluster.local
 
 debezium:
   connector:
