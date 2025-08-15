@@ -1,9 +1,10 @@
 # OpenFrame Authorization Server Configuration
 # Server Configuration
+server:
+  port: 9005
 spring:
   main:
     web-application-type: servlet
-  port: 9005
   forward-headers-strategy: native
   servlet:
     context-path: /sas
