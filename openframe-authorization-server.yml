@@ -2,17 +2,12 @@
 # Server Configuration
 server:
   port: 9005
-spring:
-  main:
-    web-application-type: servlet
   forward-headers-strategy: native
   servlet:
     context-path: /sas
-
-  # Spring Cloud Config
-  cloud:
-    config:
-      enabled: false
+spring:
+  main:
+    web-application-type: servlet
 
 # CORS Configuration
 cors:
