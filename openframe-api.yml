@@ -47,3 +47,9 @@ dgs:
     path: /graphql
     graphiql:
       enabled: true
+
+#Available SSO providers to setup
+sso:
+  providers:
+    - displayName: Google SSO
+      provider: google
