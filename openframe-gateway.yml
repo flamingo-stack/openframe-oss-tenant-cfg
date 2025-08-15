@@ -116,6 +116,9 @@ openframe:
       client-secret: openframe-gateway-secret
       redirect-uri: https://localhost/oauth/callback
       enable: true
+  # API Key Statistics configuration
+  api-key-stats:
+    redis-ttl: 604800      # 7 days in seconds
 
 security:
   oauth2:
@@ -124,10 +127,6 @@ security:
         expiration-seconds: 900
       refresh:
         expiration-seconds: 604800
-
-  # API Key Statistics configuration
-  api-key-stats:
-    redis-ttl: 604800      # 7 days in seconds
 
 management:
   server:
