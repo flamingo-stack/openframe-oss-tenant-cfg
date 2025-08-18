@@ -34,7 +34,7 @@ spring:
           max-frame-payload-length: 1048576 #1MB
       routes:
         - id: sas
-          uri: http://openframe-authorization-server.microservices.svc.cluster.local:9005
+          uri: https://localhost:9005
           predicates:
             - Path=/sas/**
           order: 0
@@ -99,7 +99,7 @@ openframe:
 # OpenFrame Gateway OAuth2 Configuration
   auth:
     server:
-      url: http://openframe-authorization-server.microservices.svc.cluster.local:9005/sas
+      url: https://localhost:9005/sas
       authorize-url: https://localhost/sas
   security:
     cookie:
