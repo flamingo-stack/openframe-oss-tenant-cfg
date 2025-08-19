@@ -48,6 +48,14 @@ dgs:
     graphiql:
       enabled: true
 
+openframe:
+  security:
+    jwt:
+      cache:
+        expire-after: PT30M
+        refresh-after: PT10M
+        maximum-size: 1
+
 #Available SSO providers to setup
 sso:
   providers:
