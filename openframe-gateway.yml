@@ -33,6 +33,12 @@ spring:
         websocket:
           max-frame-payload-length: 1048576 #1MB
       routes:
+        - id: sas
+          uri: http://openframe-authorization-server.microservices.svc.cluster.local:9005
+          predicates:
+            - Path=/sas/**
+          order: 0
+
         # Direct Swagger/OpenAPI routes (for Swagger UI JavaScript requests)
         - id: swagger-api-docs
           uri: http://openframe-external-api.microservices.svc.cluster.local:8092
@@ -89,34 +95,46 @@ openframe:
     fail-open: true
     log-violations: true
     include-headers: true
+
+# OpenFrame Gateway OAuth2 Configuration
+  auth:
+    server:
+      url: http://openframe-authorization-server.microservices.svc.cluster.local:9005/sas
+      authorize-url: https://localhost/sas
   security:
     cookie:
       domain: null
       secure: true   # true for HTTPS, false for HTTP
-
-
+    jwt:
+      cache:
+        expire-after: PT30M
+        refresh-after: PT10M
+        maximum-size: 1
+  gateway:
+    oauth:
+      client-id: openframe-gateway
+      client-secret: openframe-gateway-secret
+      redirect-uri: https://localhost/oauth/callback
+      enable: true
   # API Key Statistics configuration
   api-key-stats:
     redis-ttl: 604800      # 7 days in seconds
+
+security:
+  oauth2:
+    token:
+      access:
+        expiration-seconds: 900
+      refresh:
+        expiration-seconds: 604800
 
 management:
   server:
     port: 8101
 
 jwt:
-  issuer: openframe
+  issuer: https://auth.openframe.com
   audience: openframe-web
-  publicKey:
-    value: |
-      -----BEGIN PUBLIC KEY-----
-      MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2hOutXmTOhEp7FHCXRpn
-      6rkyeQRStHcNe5GF/+6fejfP7N4lIAe33YGyrlLB8++p2/RcWYd6ZBNb7mYX/XaI
-      cRpsgraHxMjsQ8Lyio8QkuDX7HFzW5W4MFGMSBYv8zK95FNPGGK2LEdRf+DtaYzk
-      XpqrkJTgfw7jFqEVCiC9Eg6ryHO0UppDjb8ho2XZIpWgAcW4Qf+iXaRWCR+FN4tR
-      9LF/vBmqH13CQD9jazqSTR5mMp9ih9sG0SqEAYxAhENXtLjf+yH2uDplu0RaFkuv
-      ec8Qg5aglrDzTK4wpF1avJXCmndDt2VbfMMCehiLI31LPm8qNoJo87KF71gvE+kW
-      cQIDAQAB
-      -----END PUBLIC KEY-----
   privateKey:
     value: |
       -----BEGIN PRIVATE KEY-----
@@ -147,3 +165,14 @@ jwt:
       M1L84p9zp0LUoEKCkInzRxey0rPLjRSiYRoqiJpSXisX4uUZ8H/paG17p9vNRYM8
       WCF8tQL1/DdeHALwemnWrgyc
       -----END PRIVATE KEY-----
+  publicKey:
+    value: |
+      -----BEGIN PUBLIC KEY-----
+      MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2hOutXmTOhEp7FHCXRpn
+      6rkyeQRStHcNe5GF/+6fejfP7N4lIAe33YGyrlLB8++p2/RcWYd6ZBNb7mYX/XaI
+      cRpsgraHxMjsQ8Lyio8QkuDX7HFzW5W4MFGMSBYv8zK95FNPGGK2LEdRf+DtaYzk
+      XpqrkJTgfw7jFqEVCiC9Eg6ryHO0UppDjb8ho2XZIpWgAcW4Qf+iXaRWCR+FN4tR
+      9LF/vBmqH13CQD9jazqSTR5mMp9ih9sG0SqEAYxAhENXtLjf+yH2uDplu0RaFkuv
+      ec8Qg5aglrDzTK4wpF1avJXCmndDt2VbfMMCehiLI31LPm8qNoJo87KF71gvE+kW
+      cQIDAQAB
+      -----END PUBLIC KEY-----

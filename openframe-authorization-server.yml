@@ -1,0 +1,66 @@
+# OpenFrame Authorization Server Configuration
+# Server Configuration
+server:
+  port: 9005
+  forward-headers-strategy: native
+  servlet:
+    context-path: /sas
+spring:
+  main:
+    web-application-type: servlet
+
+# CORS Configuration
+cors:
+  allowed-origins:
+    - "http://localhost:*"
+    - "https://localhost:*"
+    - "http://localhost"
+    - "https://localhost"
+  allowed-methods: [ GET, POST, PUT, DELETE, OPTIONS ]
+  allowed-headers: [ "*" ]
+  allow-credentials: true
+  max-age: 3600
+
+# OpenFrame Configuration
+openframe:
+  auth:
+    # Gateway OAuth2 Client Configuration
+    gateway:
+      client:
+        id: openframe-gateway
+        secret: openframe-gateway-secret
+      redirect-uri: https://localhost/oauth/callback
+
+  # Domain validation regex (only localhost for local development)
+  domain:
+    validation:
+      regex: "^localhost$"
+
+  # SSO Configuration
+  sso:
+    google:
+      authorization-url: https://accounts.google.com/o/oauth2/v2/auth
+      token-url: https://oauth2.googleapis.com/token
+      user-info-url: https://www.googleapis.com/oauth2/v2/userinfo
+      redirect-uri: https://localhost/oauth2/callback/google
+      scopes: openid,profile,email
+      enabled: true
+      display-name: Google
+
+# Security OAuth2 Token Configuration
+security:
+  oauth2:
+    token:
+      access:
+        expiration-seconds: 900
+      refresh:
+        expiration-seconds: 604800
+
+  encryption:
+    password: ${ENCRYPTION_PASSWORD:kdCJxik7VWRlG5L8jKHBeJQK5unssi7u1uHOd01b75ilr8n}
+    salt: ${ENCRYPTION_SALT:74f62c51327175b05abe1ad78030565c}
+
+# Management server configuration
+management:
+  server:
+    port: 9006
