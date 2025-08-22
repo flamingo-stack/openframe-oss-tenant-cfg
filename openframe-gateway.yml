@@ -37,8 +37,6 @@ spring:
           uri: http://openframe-authorization-server.microservices.svc.cluster.local:9005
           predicates:
             - Path=/sas/**
-          filters:
-            - SetRequestHeader=X-Forwarded-Proto, https
           order: 0
 
         # Direct Swagger/OpenAPI routes (for Swagger UI JavaScript requests)
