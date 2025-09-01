@@ -8,6 +8,9 @@ server:
 spring:
   main:
     web-application-type: servlet
+  data:
+    mongodb:
+      enabled: true
 
 # OpenFrame Configuration
 openframe:
