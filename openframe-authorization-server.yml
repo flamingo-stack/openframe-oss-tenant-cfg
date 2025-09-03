@@ -12,6 +12,16 @@ spring:
     mongodb:
       enabled: true
 
+# OpenFrame Configuration
+openframe:
+  auth:
+    # Gateway OAuth2 Client Configuration
+    gateway:
+      client:
+        id: openframe-gateway
+        secret: openframe-gateway-secret
+      redirect-uri: https://localhost/oauth/callback
+
   # Domain validation regex (only localhost for local development)
   domain:
     validation:
