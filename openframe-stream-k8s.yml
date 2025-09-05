@@ -5,6 +5,12 @@ spring:
       bootstrap-servers: kafka.datasources.svc.cluster.local:9092
       consumer:
         group-id: openframe-stream-group
+  shared-cluster:
+    enabled: true
+    kafka:
+      bootstrap-servers: kafka-broker.datasources.svc.cluster.local:29094
+      consumer:
+        group-id: openframe-stream-group-test
 
   data:
     redis:
