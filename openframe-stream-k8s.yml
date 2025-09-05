@@ -1,9 +1,10 @@
 # Stream service docker environment configuration
 spring:
-  kafka:
-    bootstrap-servers: kafka.datasources.svc.cluster.local:9092
-    consumer:
-      group-id: openframe-stream-group
+  oss-tenant:
+    kafka:
+      bootstrap-servers: kafka.datasources.svc.cluster.local:9092
+      consumer:
+        group-id: openframe-stream-group
 
   data:
     redis:
