@@ -18,15 +18,18 @@ openframe:
       regex: "^localhost$"
 
   # SSO Configuration
+  tenancy:
+    local-tenant: true
   sso:
     google:
+      registration-redirect-uri: "https://localhost/sas/register/login/oauth2/code/google"
+      login-redirect-uri: "https://localhost/sas/login/oauth2/code/google"
       authorization-url: https://accounts.google.com/o/oauth2/v2/auth
       token-url: https://oauth2.googleapis.com/token
-      user-info-url: https://www.googleapis.com/oauth2/v2/userinfo
-      redirect-uri: https://localhost/oauth2/callback/google
+      user-info-url: https://openidconnect.googleapis.com/v1/userinfo
+      issuer-uri: https://accounts.google.com
+      jwk-set-uri: https://www.googleapis.com/oauth2/v3/certs
       scopes: openid,profile,email
-      enabled: true
-      display-name: Google
 
 # Security OAuth2 Token Configuration
 security:
