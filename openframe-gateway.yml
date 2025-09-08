@@ -109,7 +109,7 @@ openframe:
       cache:
         expire-after: PT30M
         refresh-after: PT10M
-        maximum-size: 1
+        maximum-size: 2
   gateway:
     oauth:
       client-id: openframe-gateway
