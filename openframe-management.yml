@@ -56,3 +56,14 @@ security:
     idp:
       init:
         enabled: true
+
+nats:
+  spring:
+    server: nats://nats.datasources.svc.cluster.local:4222
+    username: service
+    password: service_pass
+    connection-timeout: 30s
+    max-reconnect: 10
+    reconnect-wait: 5s
+    ping-interval: 30s
+    no-echo: true

@@ -84,6 +84,8 @@ spring:
           predicates:
             - Path=/**
 
+nats-ws-url: ws://nats.datasources.svc.cluster.local:8080
+
 # Rate limiting configuration
 openframe:
   rate-limit:
