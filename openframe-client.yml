@@ -33,25 +33,6 @@ spring:
   cloud:
     config:
       fail-fast: false
-
-management:
-  server:
-    port: 8102
-  endpoints:
-    web:
-      base-path: /management/v1
-  endpoint:
-    health:
-      show-details: always
-      group:
-        readiness:
-          include: mongo,redis
-          show-details: always
-        liveness:
-          include: ping
-          show-details: always
-
-  cloud:
     function:
       definition: machineConnectedConsumer;machineDisconnectionConsumer;toolConnectionConsumer
     stream:
@@ -73,6 +54,23 @@ management:
         nats:
           type: nats
       default-binder: nats
+
+management:
+  server:
+    port: 8102
+  endpoints:
+    web:
+      base-path: /management/v1
+  endpoint:
+    health:
+      show-details: always
+      group:
+        readiness:
+          include: mongo,redis
+          show-details: always
+        liveness:
+          include: ping
+          show-details: always
 
 nats:
   spring:
