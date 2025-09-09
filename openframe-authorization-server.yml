@@ -20,6 +20,8 @@ openframe:
   # SSO Configuration
   tenancy:
     local-tenant: true
+    base-domain: openframe.ai
+
   sso:
     google:
       registration-redirect-uri: "https://localhost/sas/register/login/oauth2/code/google"
@@ -29,7 +31,10 @@ openframe:
       user-info-url: https://openidconnect.googleapis.com/v1/userinfo
       issuer-uri: https://accounts.google.com
       jwk-set-uri: https://www.googleapis.com/oauth2/v3/certs
-      scopes: openid,profile,email
+      scopes:
+        - openid
+        - profile
+        - email
 
 # Security OAuth2 Token Configuration
 security:
