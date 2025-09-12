@@ -62,8 +62,6 @@ openframe:
   invitations:
     ttl-hours: 24
     link-template: "https://localhost/invitations?invitationId={id}"
-  password-reset:
-    link-template: "https://localhost/reset-password?token={token}"
   mail:
     provider: smtp
 
