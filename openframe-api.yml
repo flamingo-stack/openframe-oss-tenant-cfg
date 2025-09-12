@@ -65,7 +65,7 @@ openframe:
   password-reset:
     link-template: "https://localhost/reset-password?token={token}"
   mail:
-    provider: smtp
+    provider: hubspot-api
 
 #Available SSO providers to setup
 sso:
