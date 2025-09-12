@@ -36,6 +36,10 @@ spring:
         enabled: true
     path: /graphql
 
+  mail:
+    host: localhost
+    port: 25
+
 # Management server configuration
 management:
   server:
@@ -55,6 +59,13 @@ openframe:
         expire-after: PT30M
         refresh-after: PT10M
         maximum-size: 1
+  invitations:
+    ttl-hours: 24
+    link-template: "https://localhost/invitations?invitationId={id}"
+  password-reset:
+    link-template: "https://localhost/reset-password?token={token}"
+  mail:
+    provider: smtp
 
 #Available SSO providers to setup
 sso:
