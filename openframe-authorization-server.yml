@@ -24,6 +24,10 @@ spring:
         min-idle: 0
         max-wait: 1000ms
     client-type: lettuce
+  mail:
+    host: localhost
+    port: 25
+
 openframe:
   # Domain validation regex (only localhost for local development)
   domain:
@@ -48,7 +52,10 @@ openframe:
         - openid
         - profile
         - email
-
+  password-reset:
+    link-template: "https://localhost/reset-password?token={token}"
+  mail:
+    provider: smtp
 # Security OAuth2 Token Configuration
 security:
   oauth2:
