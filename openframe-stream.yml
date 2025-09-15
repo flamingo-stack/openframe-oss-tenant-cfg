@@ -83,3 +83,5 @@ openframe:
           fleet-mdm-events: fleet.mysql.events
           fleet-mdm-activities: fleet.activities.events
           fleet-mdm-host-activities: fleet.host_activities.events
+        outbound:
+          integrated-tool-events: integrated-tool.events.pinot
