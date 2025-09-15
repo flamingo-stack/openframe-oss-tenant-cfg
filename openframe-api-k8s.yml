@@ -25,4 +25,3 @@ openframe:
   management:
     url: http://openframe-management.microservices.svc.cluster.local:8095
     key: ${OPENFRAME_MANAGEMENT_KEY:docker-management-key-123}
-  cluster-id: ${OPENFRAME_CLUSTER_ID:cluster-id}

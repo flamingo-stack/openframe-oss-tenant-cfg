@@ -77,6 +77,11 @@ openframe:
       topics:
         outbound:
           user-events: user-events
+  oss-tenant:
+    kafka:
+      topics:
+        outbound:
+          openframe-events: openframe.events
 
 #Available SSO providers to setup
 sso:

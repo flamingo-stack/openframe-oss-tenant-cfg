@@ -36,3 +36,10 @@ springdoc:
     tryItOutEnabled: true
     filter: true
     displayRequestDuration: true
+    
+openframe:
+  oss-tenant:
+    kafka:
+      topics:
+        outbound:
+          openframe-events: openframe.events
