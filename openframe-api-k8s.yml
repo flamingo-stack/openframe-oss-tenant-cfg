@@ -2,6 +2,14 @@
 spring:
   kafka:
     bootstrap-servers: kafka.datasources.svc.cluster.local:9092
+  oss-tenant:
+    enabled: true
+    kafka:
+      bootstrap-servers: kafka.datasources.svc.cluster.local:9092
+  saas:
+    enabled: true
+    kafka:
+      bootstrap-servers: saas-kafka.datasources.svc.cluster.local:29094
 
 oauth:
   client:
@@ -17,3 +25,4 @@ openframe:
   management:
     url: http://openframe-management.microservices.svc.cluster.local:8095
     key: ${OPENFRAME_MANAGEMENT_KEY:docker-management-key-123}
+  cluster-id: ${OPENFRAME_CLUSTER_ID:cluster-id}

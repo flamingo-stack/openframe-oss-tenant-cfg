@@ -22,30 +22,29 @@ spring:
       - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
   redis:
     enabled: true
+  kafka:
+    enabled: true
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      group-id: openframe-stream
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
   oss-tenant:
     enabled: true
     kafka:
       enabled: true
       bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
       producer:
-        key-serializer: org.apache.kafka.common.serialization.StringSerializer
-        value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-        properties:
-          max.request.size: 10485760
-          buffer.memory: 10485760
+        client-id: oss-tenant-producer
       consumer:
         auto-offset-reset: earliest
-        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-        value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
         properties:
-          "[spring.json.trusted.packages]": "*"
-          "[spring.json.use.type.headers]": false
-          "[spring.json.value.default.type]": "com.openframe.data.model.debezium.CommonDebeziumMessage"
-          # optional if you rely on custom type mapping header:
-          "[spring.json.type.mapping]": "debeziumMessage:com.openframe.data.model.debezium.CommonDebeziumMessage"
-          max.partition.fetch.bytes: 10485760
-          fetch.max.bytes: 10485760
-          receive.buffer.bytes: 10485760
+          "[spring.json.trusted.packages]": "com.openframe.kafka.model.*"
   cloud:
     config:
       fail-fast: false
