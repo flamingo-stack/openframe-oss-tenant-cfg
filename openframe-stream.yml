@@ -72,3 +72,14 @@ fleet:
   mdm:
     # Base URL for Fleet MDM server
     base-url: http://fleetmdm-server.integrated-tools.svc.cluster.local:8070
+
+openframe:
+  oss-tenant:
+    kafka:
+      topics:
+        inbound:
+          meshcentral-events: meshcentral.mongodb.events
+          tactical-rmm-events: tactical-rmm.postgres.events
+          fleet-mdm-events: fleet.mysql.events
+          fleet-mdm-activities: fleet.activities.events
+          fleet-mdm-host-activities: fleet.host_activities.events
