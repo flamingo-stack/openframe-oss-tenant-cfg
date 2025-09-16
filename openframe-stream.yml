@@ -44,7 +44,7 @@ spring:
       consumer:
         auto-offset-reset: earliest
         properties:
-          "[spring.json.trusted.packages]": "com.openframe.kafka.model.*"
+          spring.json.trusted.packages: "com.openframe.kafka.model.*"
   cloud:
     config:
       fail-fast: false

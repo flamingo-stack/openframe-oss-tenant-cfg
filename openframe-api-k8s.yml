@@ -3,13 +3,13 @@ spring:
   kafka:
     bootstrap-servers: kafka.datasources.svc.cluster.local:9092
   oss-tenant:
-    enabled: true
-    kafka:
-      bootstrap-servers: kafka.datasources.svc.cluster.local:9092
+    enabled: false
   saas:
     enabled: true
     kafka:
       bootstrap-servers: saas-kafka.datasources.svc.cluster.local:29094
+      producer:
+        client-id: oss-tenant-saas-producer
 
 oauth:
   client:

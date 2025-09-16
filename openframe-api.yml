@@ -24,15 +24,9 @@ spring:
         max-wait: 1000ms
     client-type: lettuce
   oss-tenant:
-    enabled: true
-    kafka:
-      producer:
-        client-id: oss-tenant-producer
+    enabled: false
   saas:
-    enabled: true
-    kafka:
-      producer:
-        client-id: oss-tenant-saas-producer
+    enabled: false
   cloud:
     config:
       fail-fast: false
@@ -77,11 +71,6 @@ openframe:
       topics:
         outbound:
           user-events: user-events
-  oss-tenant:
-    kafka:
-      topics:
-        outbound:
-          openframe-events: openframe.events
 
 #Available SSO providers to setup
 sso:
