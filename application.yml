@@ -122,4 +122,7 @@ logging:
     org.springframework.security: INFO
     org.springframework.security.web: INFO
     com.openframe.security: INFO
+
+openframe:
+  cluster-id: ${OPENFRAME_CLUSTER_ID:cluster-id}
       
