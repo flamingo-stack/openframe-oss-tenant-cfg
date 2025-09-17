@@ -5,11 +5,11 @@ spring:
   oss-tenant:
     enabled: false
   saas:
-    enabled: true
-    kafka:
-      bootstrap-servers: saas-kafka.datasources.svc.cluster.local:29094
-      producer:
-        client-id: oss-tenant-saas-producer
+    enabled: false
+#    kafka:
+#      bootstrap-servers: saas-kafka.datasources.svc.cluster.local:29094
+#      producer:
+#        client-id: oss-tenant-saas-producer
 
 oauth:
   client:
