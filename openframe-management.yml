@@ -44,6 +44,9 @@ openframe:
       client-secret: openframe-gateway-secret
       redirect-uri: https://localhost/oauth/callback
 
+  integration:
+    tool:
+      enabled: true
 security:
   oauth2:
     token:

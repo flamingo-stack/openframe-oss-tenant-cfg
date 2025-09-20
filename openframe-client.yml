@@ -143,10 +143,13 @@ kafka:
     topic:
       machine:
         name: devices-topic
-      
+
 openframe:
   oss-tenant:
     kafka:
       topics:
         outbound:
           devices-topic: devices-topic
+  integration:
+    tool:
+      enabled: true

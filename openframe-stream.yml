@@ -85,3 +85,6 @@ openframe:
           fleet-mdm-host-activities: fleet.host_activities.events
         outbound:
           integrated-tool-events: integrated-tool.events.pinot
+  integration:
+    tool:
+      enabled: true
