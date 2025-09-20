@@ -140,3 +140,8 @@ kafka:
     topic:
       machine:
         name: devices-topic
+
+openframe:
+  integration:
+    tool:
+      enabled: true
