@@ -8,6 +8,10 @@ spring:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 
+  oss-tenant:
+    kafka:
+      bootstrap-servers: kafka.datasources.svc.cluster.local:9092
+
   data:
     redis:
       host: redis-master.datasources.svc.cluster.local

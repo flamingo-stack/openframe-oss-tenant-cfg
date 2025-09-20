@@ -23,7 +23,9 @@ spring:
         min-idle: 0
         max-wait: 1000ms
     client-type: lettuce
-  kafka:
+  oss-tenant:
+    enabled: false
+  saas:
     enabled: false
   cloud:
     config:
@@ -64,6 +66,11 @@ openframe:
     link-template: "https://localhost/invitations?invitationId={id}"
   mail:
     provider: smtp
+  saas:
+    kafka:
+      topics:
+        outbound:
+          user-events: user-events
 
 #Available SSO providers to setup
 sso:

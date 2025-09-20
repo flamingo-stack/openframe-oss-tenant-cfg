@@ -30,6 +30,9 @@ spring:
     client-type: lettuce
   kafka:
     enabled: true
+  oss-tenant:
+    kafka:
+      enabled: true
   cloud:
     config:
       fail-fast: false
@@ -47,7 +50,7 @@ spring:
           group: client-service-machine-disconnected
           content-type: application/json
         toolConnectionConsumer-in-0:
-          destination: machine.*.toolconnection
+          destination: machine.*.tool-connection
           group: client-service-machine-tool-connection
           content-type: application/json
       binders:
@@ -142,6 +145,11 @@ kafka:
         name: devices-topic
 
 openframe:
+  oss-tenant:
+    kafka:
+      topics:
+        outbound:
+          devices-topic: devices-topic
   integration:
     tool:
       enabled: true
