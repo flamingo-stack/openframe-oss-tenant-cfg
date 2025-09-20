@@ -50,7 +50,7 @@ spring:
           group: client-service-machine-disconnected
           content-type: application/json
         toolConnectionConsumer-in-0:
-          destination: machine.*.toolconnection
+          destination: machine.*.tool-connection
           group: client-service-machine-tool-connection
           content-type: application/json
       binders:
