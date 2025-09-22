@@ -13,8 +13,6 @@ spring:
       enabled: true
     redis:
       enabled: false
-  kafka:
-    enabled: false
   autoconfigure:
     exclude:
       - org.springframework.boot.autoconfigure.cassandra.CassandraAutoConfiguration

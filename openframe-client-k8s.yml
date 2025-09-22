@@ -1,6 +1,4 @@
 spring:
-  kafka:
-    bootstrap-servers: kafka.datasources.svc.cluster.local:9092
   oss-tenant:
     kafka:
       bootstrap-servers: kafka.datasources.svc.cluster.local:9092

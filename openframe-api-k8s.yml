@@ -1,15 +1,9 @@
 # API service docker environment configuration
 spring:
-  kafka:
-    bootstrap-servers: kafka.datasources.svc.cluster.local:9092
   oss-tenant:
     enabled: false
   saas:
     enabled: false
-#    kafka:
-#      bootstrap-servers: saas-kafka.datasources.svc.cluster.local:29094
-#      producer:
-#        client-id: oss-tenant-saas-producer
 
 oauth:
   client:

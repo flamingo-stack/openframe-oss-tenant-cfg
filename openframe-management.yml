@@ -8,8 +8,6 @@ spring:
       enabled: true
     cassandra:
       enabled: false
-  kafka:
-    enabled: false
   cloud:
     config:
       fail-fast: false
@@ -43,6 +41,9 @@ openframe:
       client-id: openframe-gateway
       client-secret: openframe-gateway-secret
       redirect-uri: https://localhost/oauth/callback
+      
+  debezium:
+    base-url: http://debezium-connect.datasources:8083
 
   integration:
     tool:

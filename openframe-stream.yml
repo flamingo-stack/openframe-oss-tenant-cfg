@@ -22,18 +22,6 @@ spring:
       - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
   redis:
     enabled: true
-  kafka:
-    enabled: true
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-    consumer:
-      group-id: openframe-stream
-      auto-offset-reset: earliest
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-      properties:
-        spring.json.trusted.packages: "*"
   oss-tenant:
     enabled: true
     kafka:
@@ -48,25 +36,6 @@ spring:
   cloud:
     config:
       fail-fast: false
-kafka:
-  consumer:
-    topic:
-      event:
-        meshcentral:
-          name: meshcentral.mongodb.events
-        tactical-rmm:
-          name: tactical-rmm.postgres.events
-        fleet-mdm:
-          name: fleet.mysql.events
-      stream:
-        fleet-mdm:
-          activities: fleet.activities.events
-          host-activities: fleet.host_activities.events
-  producer:
-    topic:
-      it:
-        event:
-          name: integrated-tool.events.pinot
 # Fleet MDM Configuration
 fleet:
   mdm:
