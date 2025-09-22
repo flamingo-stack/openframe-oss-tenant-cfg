@@ -22,11 +22,7 @@ spring:
       - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
   redis:
     enabled: true
-  kafka:
-    consumer:
-      group-id: openframe-oss-tenant-stream
   oss-tenant:
-    enabled: true
     kafka:
       enabled: true
       bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:9092}

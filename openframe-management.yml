@@ -43,7 +43,7 @@ openframe:
       client-id: ${OPENFRAME_AUTH_CLIENT_ID:openframe-gateway}
       client-secret: ${OPENFRAME_AUTH_SECRET:openframe-gateway-secret}
       redirect-uri: ${TENANT_HOST_URL:https://localhost}/oauth/callback
-      
+
   debezium:
     base-url: http://debezium-connect.datasources:8083
 
