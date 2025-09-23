@@ -80,7 +80,7 @@ spring:
             - StripPrefix=1
 
         - id: openframe-ui-spa
-          uri: http://openframe-ui.microservices.svc.cluster.local:3000
+          uri: http://openframe-frontend.microservices.svc.cluster.local:3000
           predicates:
             - Path=/**
 
