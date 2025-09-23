@@ -35,7 +35,6 @@ spring:
       advanced:
         timestamp-generator:
           class: com.datastax.oss.driver.internal.core.time.ServerSideTimestampGenerator
-  kafka:
 
 # Common monitoring configuration
 management:

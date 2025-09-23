@@ -28,8 +28,6 @@ spring:
         min-idle: 0
         max-wait: 1000ms
     client-type: lettuce
-  kafka:
-    enabled: true
   oss-tenant:
     kafka:
       enabled: true
@@ -138,12 +136,7 @@ oauth:
         - client_credentials
       scopes:
         - agent
-kafka:
-  producer:
-    topic:
-      machine:
-        name: devices-topic
-
+      
 openframe:
   oss-tenant:
     kafka:
