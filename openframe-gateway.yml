@@ -114,7 +114,7 @@ openframe:
         maximum-size: 2
   gateway:
     cors:
-      allowed-origin-patterns: http://localhost,http://localhost:*,https://localhost,https://localhost:*,${OPENFRAME_HOST_URL}
+      allowed-origin-patterns: http://localhost,http://localhost:*,https://localhost,https://localhost:*,${OPENFRAME_HOST_URL:}
       allowed-origins:
       allowed-headers: [ "*" ]
       allowed-methods: [ "*" ]
