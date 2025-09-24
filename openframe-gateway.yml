@@ -113,6 +113,14 @@ openframe:
         refresh-after: PT10M
         maximum-size: 2
   gateway:
+    cors:
+      allowed-origin-patterns: ${CORS_ALLOWED_ORIGIN_PATTERNS:http://localhost,http://localhost:*,https://localhost,https://localhost:*}
+      allowed-origins: ${CORS_ALLOWED_ORIGINS:}
+      allowed-headers: [ "*" ]
+      allowed-methods: [ "*" ]
+      exposed-headers: [ "Authorization", "Content-Type", "access_token", "refresh_token" ]
+      allow-credentials: true
+      max-age: 3600
     oauth:
       client-id: ${OPENFRAME_AUTH_CLIENT_ID:openframe-gateway}
       client-secret: ${OPENFRAME_AUTH_SECRET:openframe-gateway-secret}
