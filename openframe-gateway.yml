@@ -123,7 +123,7 @@ openframe:
       allowed-origins:
       allowed-headers: [ "*" ]
       allowed-methods: [ "*" ]
-      exposed-headers: [ "Authorization", "Content-Type", "Access-Token", "Refresh-token" ]
+      exposed-headers: [ "Authorization", "Content-Type", "Access-Token", "Refresh-Token" ]
       allow-credentials: true
       max-age: 3600
     oauth:
