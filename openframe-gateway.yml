@@ -102,7 +102,7 @@ openframe:
   auth:
     server:
       url: http://openframe-authorization-server.microservices.svc.cluster.local:9005/sas
-      authorize-url: https://localhost/sas
+      authorize-url: ${OPENFRAME_HOST_URL:https://localhost}/sas
   security:
     cookie:
       domain: null
@@ -113,10 +113,23 @@ openframe:
         refresh-after: PT10M
         maximum-size: 2
   gateway:
+    cors:
+      allowed-origin-patterns:
+        - http://localhost
+        - http://localhost:*
+        - https://localhost
+        - https://localhost:*
+        - ${OPENFRAME_HOST_URL:}
+      allowed-origins:
+      allowed-headers: [ "*" ]
+      allowed-methods: [ "*" ]
+      exposed-headers: [ "Authorization", "Content-Type", "access_token", "refresh_token" ]
+      allow-credentials: true
+      max-age: 3600
     oauth:
-      client-id: openframe-gateway
-      client-secret: openframe-gateway-secret
-      redirect-uri: https://localhost/oauth/callback
+      client-id: ${OPENFRAME_AUTH_CLIENT_ID:openframe-gateway}
+      client-secret: ${OPENFRAME_AUTH_SECRET:openframe-gateway-secret}
+      redirect-uri: ${OPENFRAME_HOST_URL:https://localhost}/oauth/callback
       enable: true
   # API Key Statistics configuration
   api-key-stats:
