@@ -102,7 +102,7 @@ openframe:
   auth:
     server:
       url: http://openframe-authorization-server.microservices.svc.cluster.local:9005/sas
-      authorize-url: ${OPENFRAME_AUTH_URL:https://localhost/sas}
+      authorize-url: ${OPENFRAME_HOST_URL:https://localhost}/sas
   security:
     cookie:
       domain: null
@@ -116,7 +116,7 @@ openframe:
     oauth:
       client-id: ${OPENFRAME_AUTH_CLIENT_ID:openframe-gateway}
       client-secret: ${OPENFRAME_AUTH_SECRET:openframe-gateway-secret}
-      redirect-uri: ${OPENFRAME_AUTH_REDIRECT_URL:https://localhost/oauth/callback}
+      redirect-uri: ${OPENFRAME_HOST_URL:https://localhost}/oauth/callback
       enable: true
   # API Key Statistics configuration
   api-key-stats:
