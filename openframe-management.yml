@@ -50,6 +50,11 @@ openframe:
   integration:
     tool:
       enabled: true
+
+  management:
+    idp:
+      init:
+        enabled: true
 security:
   oauth2:
     token:
@@ -57,11 +62,6 @@ security:
         expiration-seconds: 900
       refresh:
         expiration-seconds: 604800
-
-  management:
-    idp:
-      init:
-        enabled: true
 
 nats:
   spring:
