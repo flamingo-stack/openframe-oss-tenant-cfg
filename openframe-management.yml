@@ -11,6 +11,8 @@ spring:
   cloud:
     config:
       fail-fast: false
+    stream:
+      enabled: true
   autoconfigure:
     exclude:
       - org.springframework.boot.autoconfigure.cassandra.CassandraAutoConfiguration
