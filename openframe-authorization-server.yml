@@ -53,7 +53,7 @@ openframe:
         - profile
         - email
   password-reset:
-    link-template: "${OPENFRAME_HOST_URL:https://localhost}/reset-password?token={token}"
+    link-template: "${TENANT_HOST_URL:https://localhost}/reset-password?token={token}"
   mail:
     provider: smtp
 # Security OAuth2 Token Configuration
