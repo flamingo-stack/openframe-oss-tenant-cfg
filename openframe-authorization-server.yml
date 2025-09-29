@@ -37,7 +37,6 @@ openframe:
   # SSO Configuration
   tenancy:
     local-tenant: true
-    base-domain: openframe.ai
 
   sso:
     google:
