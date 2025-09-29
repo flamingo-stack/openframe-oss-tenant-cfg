@@ -62,7 +62,7 @@ openframe:
         refresh-after: PT10M
         maximum-size: 1
   invitations:
-    ttl-hours: 24
+    ttl-hours: 24h
     link-template: "${TENANT_HOST_URL:https://localhost}/invitations?invitationId={id}"
   mail:
     provider: smtp
