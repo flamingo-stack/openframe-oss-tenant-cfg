@@ -33,18 +33,12 @@ spring:
           '[/**]':
             allowed-origin-patterns:
               - "http://localhost"
-              - "http://localhost:*"
               - "https://localhost"
+              - "http://localhost:*"
               - "https://localhost:*"
-              - "${TENANT_HOST_URL:openframe.ai}"
+              - "http://${TENANT_HOST_URL:openframe.ai}"
               - "https://*.${TENANT_HOST_URL:openframe.ai}"
-            allowed-methods:
-              - GET
-              - POST
-              - PUT
-              - DELETE
-              - PATCH
-              - OPTIONS
+            allowed-methods: "*"
             allowed-headers: "*"
             exposed-headers:
               - Authorization
@@ -139,19 +133,6 @@ openframe:
         refresh-after: PT10M
         maximum-size: 2
   gateway:
-    cors:
-      allowed-origin-patterns:
-        - http://localhost
-        - http://localhost:*
-        - https://localhost
-        - https://localhost:*
-        - ${TENANT_HOST_URL:}
-      allowed-origins:
-      allowed-headers: [ "*" ]
-      allowed-methods: [ "*" ]
-      exposed-headers: [ "Authorization", "Content-Type", "Access-Token", "Refresh-Token" ]
-      allow-credentials: true
-      max-age: 3600
     oauth:
       client-id: ${OPENFRAME_AUTH_CLIENT_ID:openframe-gateway}
       client-secret: ${OPENFRAME_AUTH_SECRET:openframe-gateway-secret}
