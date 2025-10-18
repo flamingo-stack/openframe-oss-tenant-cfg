@@ -27,6 +27,26 @@ spring:
     config:
       fail-fast: false
     gateway:
+      globalcors:
+        add-to-simple-url-handler-mapping: true
+        cors-configurations:
+          '[/**]':
+            allowed-origin-patterns:
+              - "http://localhost"
+              - "https://localhost"
+              - "http://localhost:*"
+              - "https://localhost:*"
+              - "http://${TENANT_HOST_URL:openframe.ai}"
+              - "https://*.${TENANT_HOST_URL:openframe.ai}"
+            allowed-methods: "*"
+            allowed-headers: "*"
+            exposed-headers:
+              - Authorization
+              - Content-Type
+              - Access-Token
+              - Refresh-Token
+            allow-credentials: true
+            max-age: 3600
       httpclient:
         # The reason of the fix is that gateway close SSE connections in 30 sec by default
         # TODO: find better solution how to handle it. It should be possible to configure for only SSE routings.
@@ -105,7 +125,7 @@ openframe:
   auth:
     server:
       url: http://openframe-authorization-server.microservices.svc.cluster.local:9005/sas
-      authorize-url: ${OPENFRAME_HOST_URL:https://localhost}/sas
+      authorize-url: ${TENANT_HOST_URL:https://localhost}/sas
   security:
     cookie:
       domain: null
@@ -116,23 +136,10 @@ openframe:
         refresh-after: PT10M
         maximum-size: 2
   gateway:
-    cors:
-      allowed-origin-patterns:
-        - http://localhost
-        - http://localhost:*
-        - https://localhost
-        - https://localhost:*
-        - ${OPENFRAME_HOST_URL:}
-      allowed-origins:
-      allowed-headers: [ "*" ]
-      allowed-methods: [ "*" ]
-      exposed-headers: [ "Authorization", "Content-Type", "Access-Token", "Refresh-Token" ]
-      allow-credentials: true
-      max-age: 3600
     oauth:
       client-id: ${OPENFRAME_AUTH_CLIENT_ID:openframe-gateway}
       client-secret: ${OPENFRAME_AUTH_SECRET:openframe-gateway-secret}
-      redirect-uri: ${OPENFRAME_HOST_URL:https://localhost}/oauth/callback
+      redirect-uri: ${TENANT_HOST_URL:https://localhost}/oauth/callback
       enable: true
   # API Key Statistics configuration
   api-key-stats:
