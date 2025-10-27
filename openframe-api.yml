@@ -30,6 +30,8 @@ spring:
   cloud:
     config:
       fail-fast: false
+    stream:
+      enabled: true
   graphql:
     graphiql:
       enabled: true
@@ -71,9 +73,23 @@ openframe:
       topics:
         outbound:
           user-events: user-events
+  integration:
+    tool:
+      enabled: true
 
 #Available SSO providers to setup
 sso:
   providers:
     - displayName: Google SSO
       provider: google
+
+nats:
+  spring:
+    server: nats://nats.datasources.svc.cluster.local:4222
+    username: service
+    password: service_pass
+    connection-timeout: 30s
+    max-reconnect: -1
+    reconnect-wait: 5s
+    ping-interval: 30s
+    no-echo: true
