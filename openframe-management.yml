@@ -11,6 +11,8 @@ spring:
   cloud:
     config:
       fail-fast: false
+    stream:
+      enabled: true
   autoconfigure:
     exclude:
       - org.springframework.boot.autoconfigure.cassandra.CassandraAutoConfiguration
@@ -40,14 +42,19 @@ openframe:
     oauth:
       client-id: ${OPENFRAME_AUTH_CLIENT_ID:openframe-gateway}
       client-secret: ${OPENFRAME_AUTH_SECRET:openframe-gateway-secret}
-      redirect-uri: ${OPENFRAME_HOST_URL:https://localhost}/oauth/callback
-      
+      redirect-uri: ${TENANT_HOST_URL:https://localhost}/oauth/callback
+
   debezium:
     base-url: http://debezium-connect.datasources:8083
 
   integration:
     tool:
       enabled: true
+
+  management:
+    idp:
+      init:
+        enabled: true
 security:
   oauth2:
     token:
@@ -55,11 +62,6 @@ security:
         expiration-seconds: 900
       refresh:
         expiration-seconds: 604800
-
-  management:
-    idp:
-      init:
-        enabled: true
 
 nats:
   spring:

@@ -29,15 +29,10 @@ spring:
     port: 25
 
 openframe:
-  # Domain validation regex (only localhost for local development)
-  domain:
-    validation:
-      regex: "^localhost$"
 
   # SSO Configuration
   tenancy:
     local-tenant: true
-    base-domain: openframe.ai
 
   sso:
     google:
@@ -53,7 +48,7 @@ openframe:
         - profile
         - email
   password-reset:
-    link-template: "${OPENFRAME_HOST_URL:https://localhost}/reset-password?token={token}"
+    link-template: "${TENANT_HOST_URL:https://localhost}/reset-password?token={token}"
   mail:
     provider: smtp
 # Security OAuth2 Token Configuration

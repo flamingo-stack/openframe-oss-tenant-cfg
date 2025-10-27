@@ -22,11 +22,7 @@ spring:
       - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
   redis:
     enabled: true
-  kafka:
-    consumer:
-      group-id: openframe-oss-tenant-stream
   oss-tenant:
-    enabled: true
     kafka:
       enabled: true
       bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
@@ -56,6 +52,7 @@ openframe:
           fleet-mdm-events: fleet.mysql.events
           fleet-mdm-activities: fleet.activities.events
           fleet-mdm-host-activities: fleet.host_activities.events
+          fleet-mdm-query-result-events: fleet.query_results.events
         outbound:
           integrated-tool-events: integrated-tool.events.pinot
   integration:
