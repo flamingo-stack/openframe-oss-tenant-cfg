@@ -82,6 +82,8 @@ sso:
   providers:
     - displayName: Google SSO
       provider: google
+    - displayName: Microsoft SSO
+      provider: microsoft
 
 nats:
   spring:
