@@ -47,17 +47,21 @@ openframe:
         - openid
         - profile
         - email
-    office:
-      login-redirect-uri: "https://localhost/sas/login/oauth2/code/office"
-      # Multi-tenant (common):
-      #      authorization-url: "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
-      #      token-url: "https://login.microsoftonline.com/common/oauth2/v2.0/token"
-      #      jwk-set-uri: "https://login.microsoftonline.com/common/discovery/v2.0/keys"
-      # OR single-tenant:
+    microsoft:
+      login-redirect-uri: "https://localhost/sas/login/oauth2/code/microsoft"
+
+      # Tenant-specific (will be used when msTenantId is present in sso_configs)
       authorization-url: "https://login.microsoftonline.com/{msTenantId}/oauth2/v2.0/authorize"
       token-url: "https://login.microsoftonline.com/{msTenantId}/oauth2/v2.0/token"
       jwk-set-uri: "https://login.microsoftonline.com/{msTenantId}/discovery/v2.0/keys"
       issuer-uri: "https://login.microsoftonline.com/{msTenantId}/v2.0"
+
+      # Common (used when msTenantId is absent)
+      common-authorization-url: "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+      common-token-url: "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+      common-jwk-set-uri: "https://login.microsoftonline.com/common/discovery/v2.0/keys"
+      common-issuer-uri: "https://login.microsoftonline.com/common/v2.0"
+
       scopes:
         - openid
         - profile
