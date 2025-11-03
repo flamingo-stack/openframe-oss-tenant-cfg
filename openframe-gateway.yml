@@ -131,6 +131,7 @@ openframe:
       domain: null
       secure: true   # true for HTTPS, false for HTTP
     jwt:
+      allowed-issuer-base: http://openframe-authorization-server.microservices.svc.cluster.local:9005/sas
       cache:
         expire-after: PT30M
         refresh-after: PT10M
